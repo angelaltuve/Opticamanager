@@ -1,0 +1,60 @@
+[project]
+name = "opticamanager"
+version = "0.1.0"
+description = ""
+authors = [{ name = "angelaltuve", email = "angelaltuve@murena.io" }]
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+  "sqlmodel (>=0.0.38,<0.0.39)",
+  "bcrypt (>=5.0.0,<6.0.0)",
+  "pyqt6 (>=6.11.0,<7.0.0)",
+  "logging (>=0.4.9.6,<0.5.0.0)",
+  "alembic (>=1.18.4,<2.0.0)",
+  "pyqtgraph (>=0.14.0,<0.15.0)",
+  "openpyxl (>=3.1.5,<4.0.0)",
+  "pyvenezuela (>=0.0.5,<0.1.0)",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__", "**/.pytest_cache", "**/node_modules"]
+pythonVersion = "3.14"
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+
+# ── Stricter rules ───────────────────────────
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportUnusedFunction = "warning"
+reportUnusedClass = "warning"
+reportDeprecated = "warning"
+reportUninitializedInstanceVariable = "warning"
+
+# ── Third-party stub workarounds ──────────────
+# PyQt6 stubs return Optional on methods that always return objects at runtime
+reportOptionalMemberAccess = "warning"
+# SQLModel 0.0.38 __tablename__ clash (sqlmodel#98, #1821) and Numeric[Decimal] in sa_type
+reportAssignmentType = "warning"
+reportArgumentType = "warning"
+
+[tool.hatch.build]
+packages = ["src/opticamanager"]
+
+[dependency-groups]
+dev = [
+  "ruff (>=0.15.11,<0.16.0)",
+  "debugpy (>=1.8.20,<2.0.0)",
+  "pytest (>=9.0.3,<10.0.0)",
+  "pytest-mock (>=3.15.1,<4.0.0)",
+  "pytest-qt (>=4.5.0,<6.0.0)",
+  "pytest-cov (>=7.1.0,<8.0.0)",
+  "pytest-html (>=4.2.0,<5.0.0)",
+  "pyright (>=1.1.400,<2.0.0)",
+  "pyinstaller (>=6.12.0,<7.0.0)",
+]

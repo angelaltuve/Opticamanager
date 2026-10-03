@@ -1,0 +1,559 @@
+/* ================================================================
+   OpticaManager — App-specific overrides (on top of Breeze theme)
+   ================================================================
+   Modern white/light theme. Generic widget styling comes from
+   BreezeStyleSheets (light); these rules customise OpticaManager's
+   app-specific widgets with a clean, bright palette.
+   ================================================================ */
+
+/* === Sidebar ===================================================
+   Soft gradient slate → white sidebar for a modern look. */
+#sidebar {
+    background: qlineargradient(
+        x1: 0, y1: 0, x2: 0, y2: 1,
+        stop: 0 #f8f9fb,
+        stop: 1 #eef1f6
+    );
+    border-right: 1px solid #e3e8ef;
+    min-width: 210px;
+    max-width: 210px;
+}
+
+#sidebar-header {
+    background: transparent;
+    padding: 6px 0;
+}
+
+#sidebar-logo {
+    color: #1f2933;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+#sidebar-logo-sub {
+    color: #7b8794;
+    font-size: 11px;
+}
+
+#sidebar-btn {
+    background: transparent;
+    color: #48525f;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    padding-left: 18px;
+    margin: 1px 8px;
+    font-size: 14px;
+    min-height: 40px;
+}
+#sidebar-btn:hover {
+    background: #e8edf4;
+    color: #1f2933;
+}
+#sidebar-btn:checked {
+    background: #ffffff;
+    color: #2563eb;
+    font-weight: 700;
+    border-left: 3px solid #2563eb;
+}
+
+QPushButton#sidebar-btn[logout="true"] {
+    color: #dc2626;
+}
+QPushButton#sidebar-btn[logout="true"]:hover {
+    background: #fde8e8;
+    color: #b91c1c;
+}
+
+/* === Login Window ============================================= */
+#login-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1f2933;
+}
+
+#login-subtitle {
+    font-size: 12px;
+    color: #7b8794;
+}
+
+#login-separator {
+    background: #e3e8ef;
+    max-width: 200px;
+}
+
+/* === Status bar =============================================== */
+QStatusBar {
+    background: #ffffff;
+    color: #48525f;
+    border-top: 1px solid #e6ebf1;
+    font-size: 12px;
+    padding: 1px 8px;
+}
+
+/* === Generic label (dark readable text over white) =========== */
+QLabel {
+    color: #1f2933;
+    background: transparent;
+}
+
+/* === Named labels ============================================= */
+QLabel#title-h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1f2933;
+}
+
+QLabel#title-h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2933;
+    margin-bottom: 6px;
+}
+
+QLabel#title-h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2933;
+}
+
+QLabel#title-pos {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+QLabel#muted {
+    font-size: 11px;
+    color: #7b8794;
+}
+
+QLabel#value-large {
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+}
+
+QLabel#total-pos {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+QLabel#change-pos {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+QLabel#diff-pos {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Generic accent colors via dynamic property */
+QLabel[accent="green"]  { color: #16a34a; }
+QLabel[accent="red"]    { color: #dc2626; }
+QLabel[accent="blue"]   { color: #2563eb; }
+QLabel[accent="orange"] { color: #f59e0b; }
+QLabel[accent="purple"] { color: #8b5cf6; }
+QLabel[accent="teal"]   { color: #0d9488; }
+
+/* === PushButton overrides ===================================== */
+QPushButton {
+    border-radius: 8px;
+    padding: 3px 10px;
+    min-height: 20px;
+}
+
+QPushButton[danger="true"] {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+QPushButton[danger="true"]:hover {
+    background-color: #dc2626;
+}
+
+QPushButton[success="true"] {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+QPushButton[success="true"]:hover {
+    background-color: #15803d;
+}
+QPushButton[success="true"]:disabled {
+    background-color: #a7d7bc;
+    color: #ffffff;
+}
+
+/* Primary action button */
+QPushButton#btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 22px;
+}
+QPushButton#btn-primary:hover {
+    background-color: #1d4ed8;
+}
+QPushButton#btn-primary:disabled {
+    background-color: #a7c0ef;
+    color: #ffffff;
+}
+
+QPushButton#btn-refresh {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 13px;
+    min-height: 20px;
+}
+QPushButton#btn-refresh:hover {
+    background: #1d4ed8;
+}
+
+QPushButton#btn-delete-item {
+    color: #dc2626;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+}
+
+/* Flat link buttons */
+QPushButton[flat="true"] {
+    background: transparent;
+    color: #2563eb;
+    border: none;
+    text-decoration: underline;
+    padding: 2px;
+}
+QPushButton[flat="true"]:hover {
+    color: #1d4ed8;
+}
+
+/* === Inputs ==================================================== */
+QLineEdit, QComboBox, QDoubleSpinBox, QSpinBox, QDateEdit, QTextEdit {
+    background: #ffffff;
+    border: 1px solid #d7dee7;
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #1f2933;
+    selection-background-color: #dbeafe;
+}
+QLineEdit:focus, QComboBox:focus, QDoubleSpinBox:focus,
+QSpinBox:focus, QDateEdit:focus, QTextEdit:focus {
+    border: 1px solid #2563eb;
+}
+QLineEdit:disabled {
+    background: #f1f4f8;
+    color: #9aa5b1;
+}
+
+/* === Table headers ============================================ */
+QHeaderView::section {
+    background-color: #f4f6fa;
+    color: #48525f;
+    padding: 6px 8px;
+    border: none;
+    border-bottom: 2px solid #e6ebf1;
+    font-weight: 700;
+    font-size: 12px;
+}
+QHeaderView::section:hover {
+    background-color: #eef1f6;
+}
+
+QTableWidget, QTableView {
+    background: #ffffff;
+    alternate-background-color: #fafbfc;
+    border: 1px solid #e6ebf1;
+    border-radius: 8px;
+    gridline-color: #eef1f6;
+    color: #1f2933;
+    selection-background-color: #dbeafe;
+    selection-color: #1f2933;
+}
+
+/* === KPI Cards ================================================ */
+QFrame#kpi-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e6ebf1;
+    padding: 10px 12px;
+}
+
+QLabel#kpi-title {
+    font-size: 11px;
+    color: #7b8794;
+    border: none;
+}
+
+QLabel#kpi-value {
+    font-size: 22px;
+    font-weight: 700;
+    border: none;
+    color: #1f2933;
+}
+
+/* KPI card accent top borders */
+QFrame#kpi-card[accent="green"]  { border-top: 3px solid #16a34a; }
+QFrame#kpi-card[accent="red"]    { border-top: 3px solid #ef4444; }
+QFrame#kpi-card[accent="blue"]   { border-top: 3px solid #2563eb; }
+QFrame#kpi-card[accent="orange"] { border-top: 3px solid #f59e0b; }
+QFrame#kpi-card[accent="purple"] { border-top: 3px solid #8b5cf6; }
+QFrame#kpi-card[accent="teal"]   { border-top: 3px solid #0d9488; }
+
+/* === Charts =================================================== */
+QWidget#chart-pie {
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+/* === POS ====================================================== */
+QFrame#pos-session-bar {
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+QFrame#pos-session-bar[state="open"] {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #047857;
+}
+QFrame#pos-session-bar[state="closed"] {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+QLabel#session-label { font-size: 12px; }
+QLabel#customer-label { font-size: 13px; }
+
+/* ── Generic Frame card ─────────────────────────────────────────── */
+QFrame.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e6ebf1;
+}
+
+/* === Dashboard cards (_Card) ==================================== */
+_Card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    border-left: 4px solid transparent;
+}
+_Card[accent="green"]  { border-left-color: #16a34a; }
+_Card[accent="blue"]   { border-left-color: #2563eb; }
+_Card[accent="orange"] { border-left-color: #f59e0b; }
+_Card[accent="red"]    { border-left-color: #ef4444; }
+_Card[accent="purple"] { border-left-color: #8b5cf6; }
+_Card[accent="teal"]   { border-left-color: #0d9488; }
+
+QLabel#card-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2933;
+}
+
+/* === Dashboard BI =============================================== */
+QWidget#bi-dashboard { background: #f6f8fb; }
+
+QLabel#filter-label {
+    font-size: 12px;
+    color: #48525f;
+    background: transparent;
+}
+
+/* === Exchange Rate Widget ======================================= */
+ExchangeRateWidget, ExchangeRateWidget QFrame {
+    background: #f0f6ff;
+    border: 1px solid #d0e0ff;
+    border-radius: 10px;
+}
+QLabel#rate-source { color: #7b8794; }
+QLabel#rate-source[source="bcv"] { color: #16a34a; font-weight: 700; }
+QLabel#rate-source[source="manual"] { color: #f59e0b; font-weight: 700; }
+QLabel#rate-source[source="unknown"] { color: #dc2626; }
+
+/* === Inventario ================================================= */
+QLabel#image-placeholder {
+    border: 1px solid #d7dee7;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+QLabel#stock-alert {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* === Proveedores ================================================ */
+QLabel#supplier-info {
+    font-size: 14px;
+    padding: 6px;
+}
+QLabel#debt-remaining {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+/* === Reportes =================================================== */
+QFrame#report-controls {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+/* === POS dialogs ================================================ */
+QLabel#dialog-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+QLabel#payment-total { font-size: 16px; }
+
+QLabel#pos-title { font-size: 18px; font-weight: 700; }
+
+QLabel#total-bs {
+    font-size: 18px;
+    font-weight: 700;
+    color: #16a34a;
+}
+QLabel#total-usd {
+    font-size: 12px;
+    color: #7b8794;
+}
+QLabel#total-value {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+QLabel#qty-label {
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 24px;
+    color: #1f2933;
+}
+
+/* Change label — always green */
+QLabel#change-pos { color: #16a34a; }
+
+/* === QTabWidget (parallel sales) ================================ */
+QTabWidget::pane {
+    border: 1px solid #e6ebf1;
+    border-radius: 10px;
+    background: #ffffff;
+    top: -1px;
+}
+QTabBar::tab {
+    background: #f1f4f8;
+    color: #48525f;
+    border: 1px solid #e6ebf1;
+    border-bottom: none;
+    padding: 5px 14px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-right: 4px;
+}
+QTabBar::tab:selected {
+    background: #ffffff;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* "+" new-sale button on the tab bar (browser-style) */
+QToolButton#pos-new-sale-tab {
+    border: none;
+    background: transparent;
+    color: #48525f;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+QToolButton#pos-new-sale-tab:hover {
+    background: #e6ebf1;
+    color: #2563eb;
+}
+QToolButton#pos-new-sale-tab:disabled {
+    color: #b3bcc8;
+}
+
+/* === Scrollbars ================================================= */
+QScrollBar:vertical {
+    background: #f4f6fa;
+    width: 12px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: #cbd5e1;
+    border-radius: 6px;
+    min-height: 30px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #94a3b8;
+}
+QScrollBar:horizontal {
+    background: #f4f6fa;
+    height: 12px;
+    margin: 0;
+}
+QScrollBar::handle:horizontal {
+    background: #cbd5e1;
+    border-radius: 6px;
+    min-width: 30px;
+}
+
+/* === POS: selected-customer card ================================ */
+QFrame#pos-customer-card {
+    background: #eef5ff;
+    border: 1px solid #bcd3f8;
+    border-radius: 8px;
+    padding: 2px;
+}
+QLabel#customer-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2933;
+}
+QLabel#customer-meta {
+    font-size: 12px;
+    color: #48525f;
+}
+QPushButton#btn-quit-customer {
+    background: transparent;
+    border: none;
+    color: #dc2626;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+QPushButton#btn-quit-customer:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* === POS: customer completer popup =============================== */
+QCompleter QAbstractItemView {
+    background: #ffffff;
+    border: 1px solid #d7dee7;
+    border-radius: 6px;
+    padding: 4px;
+    outline: 0;
+}
+QCompleter QAbstractItemView::item {
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: #1f2933;
+}
+QCompleter QAbstractItemView::item:selected {
+    background: #dbeafe;
+    color: #1f2933;
+}

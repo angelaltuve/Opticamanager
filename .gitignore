@@ -1,0 +1,32 @@
+# ── Allowlist strategy ────────────────────────────────────────────────────────
+# Ignore everything by default, then explicitly allow what belongs in the repo.
+
+*
+
+# ── Allow: root config files ──────────────────────────────────────────────────
+!.gitignore
+!README.md
+!pyproject.toml
+!uv.lock
+
+# ── Allow: Alembic ────────────────────────────────────────────────────────────
+!alembic.ini
+!migrations/
+!migrations/**
+
+# ── Allow: source code ───────────────────────────────────────────────────────
+!src/
+!src/**
+
+# ── Allow: tests ─────────────────────────────────────────────────────────────
+!tests/
+!tests/**
+
+# ── Deny: compiled / cache artefacts inside allowed dirs ─────────────────────
+**/__pycache__/
+**/*.py[codz]
+**/*.so
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/*.egg-info/
